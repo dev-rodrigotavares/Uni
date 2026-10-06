@@ -8,7 +8,7 @@ Os materiais incluídos dizem respeito às seguintes áreas:
 
 - Arquitetura de Computadores  
 - Estruturas de Dados e Algoritmos
-
+- Computaçao Grafica
 ## Objetivo
 
 Organizar e acompanhar a evolução dos exercícios práticos desenvolvidos ao longo das aulas.
