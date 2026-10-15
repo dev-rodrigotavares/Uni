@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="turno-a" width="200" height="200"></canvas>
+
+<script>
+function main(){
+    let gc = document
+        .getElementById("turno-a")
+        .getContext("2d");
+    gc.fillStyle = "steelblue";
+    gc.fillRect(100,100,100,100);
+
+    const star_angle = 0;
+    const end_angle= 2* Math.PI;
+    gc.beginPath();
+    gc.arc(150, 150, 35, star_angle,end_angle,true);
+    gc.closePath();
+
+    gc.fillStyle = "khaki";
+    gc.fill();
+}
+
+main();
+</script>
+
+</body>
+</html>
