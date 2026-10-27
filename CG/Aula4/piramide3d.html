@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Exercício 2 - Pirâmide</title>
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/",
+
+      "piramide": "./piramide.js"
+    }
+  }
+  </script>
+</head>
+<body>
+  <div id="3js:container">
+  </div>
+  <script type="module">
+    import main from "piramide";
+    main("3js:container");
+  </script>
+</body>
+</html>

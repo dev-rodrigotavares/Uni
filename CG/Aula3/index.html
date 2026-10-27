@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Exercicio 1</title>
+</head>
+
+<body onload="main()">
+
+    <h2>Canvas 2D</h2>
+
+    <canvas id="canvas" width="360" height="200"></canvas>
+
+    <h2>SVG</h2>
+
+    <svg width="400" height="400">
+
+        <defs>
+            <linearGradient id="gradiente"
+                x1="0%" y1="0%"
+                x2="100%" y2="0%">
+
+                <stop offset="0%" stop-color="#ff0000"/>
+                <stop offset="30%" stop-color="#ffff00"/>
+                <stop offset="70%" stop-color="#00ff00"/>
+                <stop offset="100%" stop-color="#0000ff"/>
+
+            </linearGradient>
+        </defs>
+
+        <rect x="0" y="0"
+              width="320" height="200"
+              rx="30"
+              fill="url(#gradiente)"
+              transform="rotate(180 160 100)" />
+
+    </svg>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
