@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Exercício 3 - Cilindro (X3D)</title>
+  <script src="https://www.x3dom.org/download/1.8.3/x3dom.js"></script>
+  <link rel="stylesheet" href="https://www.x3dom.org/download/1.8.3/x3dom.css">
+
+</head>
+<body>
+  <x3d>
+    <scene>
+      <background skyColor="1 1 1"></background>
+      <viewpoint position="0 0 8" centerOfRotation="0 0 0"></viewpoint>
+      <transform rotation="1 0 1 0.7">
+        <shape>
+          <appearance>
+            <material diffuseColor="0.86 0.08 0.24"></material>
+          </appearance>
+          <cylinder radius="1.5" height="3"></cylinder>
+        </shape>
+      </transform>
+    </scene>
+  </x3d>
+</body>
+</html>

@@ -10,5 +10,7 @@ public class Aula3{
 
         double f = 1.8 *c + 32;
         System.out.println(c + " C = " +f + "f");
+        s.close();
     }
+
 }
