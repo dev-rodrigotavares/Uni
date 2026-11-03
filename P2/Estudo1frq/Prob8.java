@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import javax.swing.JFrame;
 
-public class Prob6 {
+public class Prob8 {
     public static void main(String[] args) {
 
         Scanner s = new Scanner(System.in);

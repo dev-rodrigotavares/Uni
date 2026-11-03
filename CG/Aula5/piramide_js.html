@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Ficha4 - Three.js</title>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+  </style>
+</head>
+
+<body>
+
+  <script type="module">
+    import * as THREE from 'three';
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x000000);
+
+    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+    camera.position.set(0, 0.75, 4);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.target.set(0, 0.75, 0);
+
+
+    scene.add(new THREE.AmbientLight(0xffffff, 0.4));
+    const luz = new THREE.DirectionalLight(0xffffff, 1.5);
+    luz.position.set(3, 4, 5);
+    scene.add(luz);
+
+
+    const vertices = [
+      -1, 0, 1, 1, 0, 1, 0, 1.5, 0,
+      1, 0, 1, 1, 0, -1, 0, 1.5, 0,
+      1, 0, -1, -1, 0, -1, 0, 1.5, 0,
+      -1, 0, -1, -1, 0, 1, 0, 1.5, 0,
+      -1, 0, -1, 1, 0, -1, 1, 0, 1,
+      -1, 0, -1, 1, 0, 1, -1, 0, 1
+    ];
+
+    const uvs = [
+      0, 0, 1, 0, 0.5, 1,
+      0, 0, 1, 0, 0.5, 1,
+      0, 0, 1, 0, 0.5, 1,
+      0, 0, 1, 0, 0.5, 1,
+      0, 0, 1, 0, 1, 1,
+      0, 0, 1, 1, 0, 1
+    ];
+
+    const geometria = new THREE.BufferGeometry();
+    geometria.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+    geometria.setAttribute('uv', new THREE.Float32BufferAttribute(uvs, 2));
+    geometria.computeVertexNormals();
+
+
+    const loader = new THREE.TextureLoader();
+
+    const cor = loader.load('pedra_color.jpg');
+    cor.colorSpace = THREE.SRGBColorSpace;
+
+    const material = new THREE.MeshStandardMaterial({
+      map: cor,
+      roughnessMap: loader.load('pedra_spec.jpg'),
+      normalMap: loader.load('pedra_normal.jpg'),
+      side: THREE.DoubleSide
+    });
+
+
+    const piramide = new THREE.Mesh(geometria, material);
+    scene.add(piramide);
+
+
+    function animar() {
+      requestAnimationFrame(animar);
+      controls.update();
+      renderer.render(scene, camera);
+    }
+    animar();
+
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
+
+</body>
+
+</html>
