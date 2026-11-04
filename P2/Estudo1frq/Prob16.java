@@ -18,6 +18,11 @@ public class Prob16 {
             Nome = n;
         }
 
+        public String getName() {
+            return Nome;
+
+        }
+
         public void setNotas(int n1, int n2) {
             nota1 = n1;
             nota2 = n2;
